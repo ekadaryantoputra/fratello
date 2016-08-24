@@ -1,18 +1,21 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Anggota extends CI_Controller {
+class Blog extends CI_Controller {
+
 	public function __construct(){
 		parent::__construct();
-		
 	}
+
 	public function index(){
-		$data['sql']=$this->m_anggota->viewAnggota();
-		$this->load->view('anggota/view',$data);
+		$data['sql']=$this->m_blog->viewBlog();
+		$this->load->view('blog/index',$data);
 	}
+
 	public function add(){
-		$this->load->view('anggota/add');
+		$this->load->view('blog/add');
 	}
+
 	public function processAdd(){
 		$nmfile = "IMG".time();
 		$config['upload_path'] = './assets/photo_anggota/';
@@ -31,29 +34,29 @@ class Anggota extends CI_Controller {
 		//if upload success
 		}else{
 			$gbr = $this->upload->data();
-			$data = array(
-					'id_anggota' => $this->input->post('id'),
-					'nama_anggota' => $this->input->post('nama'),
-					'photo_profile' => $gbr['file_name']
-				);
 
-			$this->m_anggota->addAnggota($data);
-			redirect(site_url('anggota'),'refresh');
+			$data = array(
+				'id_blog' => $this->input->post('id_blog'),
+				'title' => $this->input->post('title'),
+				'photo' => $gbr['file_name'],
+				'content' => $this->input->post('content'),
+				'create_date' => $this->input->post('create_date'),
+				'create_by' => $this->input->post('create_by'),
+				'id_login' => $this->input->post('id_login')
+			);
+			
+			$this->m_blog->addBlog($data);
+			redirect(site_url('blog'),'refresh');
 		}
 	}
 
-	public function delete($id){
-		$this->m_anggota->deleteAnggota($id);
-		redirect(site_url('anggota'),'refresh');
-	}
-
 	public function edit($id){
-		$data['sql']=$this->m_anggota->edit($id);
-		$this->load->view('anggota/edit',$data);
+		$data['sql'] = $this->m_blog->edit($id);
+		$this->load->view('blog/edit',$data);
 	}
 
 	public function processEdit(){
-		$id=$this->input->post('id');
+		$id=$this->input->post('id_blog');
 		$nmfile = time();
 		$config['upload_path'] = './assets/photo_anggota/';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -72,17 +75,24 @@ class Anggota extends CI_Controller {
 		}else{
 			$gbr = $this->upload->data();
 			$data = array(
-					'id_anggota' => $this->input->post('id'),
-					'nama_anggota' => $this->input->post('nama'),
-					'photo_profile' => $gbr['file_name']
+				'title' => $this->input->post('title'),
+				'photo' => $gbr['file_name'],
+				'content' => $this->input->post('content'),
+				'create_date' => $this->input->post('create_date'),
+				'create_by' => $this->input->post('create_by'),
+				'id_login' => $this->input->post('id_login')
 				);
 
-			$this->m_anggota->editAnggota($data,$id);
-			redirect(site_url('anggota'),'refresh');
+			$this->m_blog->editBlog($data,$id);
+			redirect(site_url('blog'),'refresh');
 		}
 	}
 
+	public function delete($id){
+		$this->m_blog->deleteBlog($id);
+		redirect(site_url('blog'),'refresh');
+	}
 }
 
-/* End of file anggota.php */
-/* Location: ./application/controllers/anggota.php */
+/* End of file blog.php */
+/* Location: ./application/controllers/blog.php */
