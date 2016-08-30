@@ -8,6 +8,7 @@ class Blog extends CI_Controller {
 	}
 
 	public function index(){
+		$this->session->userdata('username');
 		$data['sql']=$this->m_blog->viewBlog();
 		$this->load->view('blog/index',$data);
 	}
@@ -40,9 +41,8 @@ class Blog extends CI_Controller {
 				'title' => $this->input->post('title'),
 				'photo' => $gbr['file_name'],
 				'content' => $this->input->post('content'),
-				'create_date' => $this->input->post('create_date'),
-				'create_by' => $this->input->post('create_by'),
-				'id_login' => $this->input->post('id_login')
+				'create_date' => date("Y-m-d"), //$this->input->post('create_date'),
+				'create_by' => $this->session->userdata('username') //$this->input->post('create_by'),
 			);
 			
 			$this->m_blog->addBlog($data);

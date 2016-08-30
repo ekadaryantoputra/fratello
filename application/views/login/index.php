@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Login</title>
+	<title>Document</title>
 </head>
 <body>
-	<form action="<?php echo site_url('login/processLogin'); ?>" method="post">
+	<form action="<?php echo site_url('index/processLogin') ?>" method="post">
 		<input type="text" name="username" placeholder="Username">
-		<input type="password" name="password" placeholder="Password">
+		<input type="text" name="password" placeholder="Password">
 		<input type="submit" value="Log In">
 	</form>
 </body>

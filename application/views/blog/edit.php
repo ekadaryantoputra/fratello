@@ -20,7 +20,6 @@
 		content <textarea name="content" id="mytextarea"><?php echo $key->content; ?></textarea><br>
 		create date <input type="text" name="create_date" value="<?php echo $key->create_date; ?>"><br>
 		create by <input type="text" name="create_by" value="<?php echo $key->create_by; ?>"><br>
-		id login<input type="text" name="id_login" value="<?php echo $key->id_login; ?>"><br>
 		<input type="submit" value="edit">
 	</form>
 	<?php } ?>

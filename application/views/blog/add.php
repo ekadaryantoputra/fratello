@@ -17,9 +17,8 @@
 		title <input type="text" name="title" id=""><br>
 		photo <input type="file" name="photo" id=""><br>
 		content <textarea name="content" id="mytextarea">Jomblo unyu unyu</textarea><br>
-		create date <input type="text" name="create_date" id=""><br>
-		create by <input type="text" name="create_by" id=""><br>
-		id login<input type="text" name="id_login" id=""><br>
+		<input type="hidden" name="create_date" id="">
+		<input type="hidden" name="create_by" id="">
 		<input type="submit" value="add">
 	</form>
 </body>

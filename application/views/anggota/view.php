@@ -5,7 +5,8 @@
 	<title>Anggota</title>
 </head>
 <body>
-<a href="<?php echo site_url('anggota/add'); ?>"><input type="button" value="add"></a><br>
+<a href="<?php echo site_url('anggota/add'); ?>"><input type="button" value="add"></a>
+<br>
 <table border="1">
 	<tr>
 		<td>id</td>
@@ -21,6 +22,7 @@
 		<td>
 			<a href="<?php echo site_url('anggota/edit/')."$key->id_anggota"; ?>"><input type="button" value="edit"></a>
 			<a href="<?php echo site_url('anggota/delete/')."$key->id_anggota"; ?>"><input type="button" value="delete"></a>
+			<a href="<?php echo site_url('anggota/uploadFoto/')."$key->id_anggota"; ?>"><input type="button" value="upload foto"></a>
 		</td>
 	</tr>
 	<?php } ?>

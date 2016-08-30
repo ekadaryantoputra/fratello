@@ -5,7 +5,9 @@
 	<title>Blog</title>
 </head>
 <body>
-	<a href="<?php echo site_url('blog/add'); ?>">add</a>
+	<?php //echo $this->session->userdata('username'); ?>
+	<a href="<?php echo site_url('blog/add'); ?>">add</a> | <a href="<?php echo site_url('blog/add'); ?>">POSTING</a> | 
+	<a href="<?php echo site_url('index/logout'); ?>">LOGOUT</a>
 	<table border="1">
 		<tr>
 			<td>id blog</td>
@@ -14,7 +16,6 @@
 			<td>content</td>
 			<td>create date</td>
 			<td>create by</td>
-			<td>id_login</td>
 			<td>action</td>
 		</tr>
 		<?php foreach ($sql as $key) { ?>
@@ -25,7 +26,6 @@
 			<td><?php echo $key->content; ?></td>
 			<td><?php echo $key->create_date; ?></td>
 			<td><?php echo $key->create_by; ?></td>
-			<td><?php echo $key->id_login; ?></td>
 			<td>
 				<a href="<?php echo site_url('blog/edit/')."$key->id_blog"; ?>">edit</a> | 
 				<a href="<?php echo site_url('blog/delete/')."$key->id_blog"; ?>">delete</a>
