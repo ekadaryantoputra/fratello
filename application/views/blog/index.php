@@ -5,8 +5,8 @@
 	<title>Blog</title>
 </head>
 <body>
-	<?php //echo $this->session->userdata('username'); ?>
-	<a href="<?php echo site_url('blog/add'); ?>">add</a> | <a href="<?php echo site_url('blog/add'); ?>">POSTING</a> | 
+	<?php echo"Hai ".$this->session->userdata('username'); ?>
+	<a href="<?php echo site_url('anggota/add'); ?>">add anggota</a> | <a href="<?php echo site_url('blog/add'); ?>">posting blog</a> | 
 	<a href="<?php echo site_url('index/logout'); ?>">LOGOUT</a>
 	<table border="1">
 		<tr>

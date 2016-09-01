@@ -5,12 +5,15 @@ class Blog extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		if ($this->session->userdata('username')=="") {
+			redirect('index','refresh');
+		}
 	}
 
 	public function index(){
-		$this->session->userdata('username');
-		$data['sql']=$this->m_blog->viewBlog();
-		$this->load->view('blog/index',$data);
+			$this->session->userdata('username');
+			$data['sql']=$this->m_blog->viewBlog();
+			$this->load->view('blog/index',$data);
 	}
 
 	public function add(){

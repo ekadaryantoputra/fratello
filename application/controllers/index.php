@@ -25,7 +25,7 @@ class Index extends CI_Controller {
 	}
 
 	public function logout(){
-		$this->session->unset_userdata(array('username'=>''));
+		$this->session->sess_destroy();
 		redirect('index','refresh');
 	}
 }
